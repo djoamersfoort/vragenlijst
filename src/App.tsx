@@ -46,7 +46,7 @@ export default function App() {
                                 <Separator />
                                 <div className={"flex gap-4 items-center"}>
                                     <Badge>2.</Badge>
-                                    <span>Iedereen krijg tegelijk de mogelijkheid om de gemaakte vragen in te vullen</span>
+                                    <span>Iedereen krijgt tegelijk de mogelijkheid om de gemaakte vragen in te vullen</span>
                                 </div>
                                 <Separator />
                                 <div className={"flex gap-4 items-center"}>
