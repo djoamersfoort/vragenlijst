@@ -35,7 +35,7 @@ export default function App() {
                         <DialogContent>
                             <DialogHeader className={"mb-4"}>
                                 <DialogTitle className={"text-center text-2xl"}>Welkom bij DJO Vragenlijst</DialogTitle>
-                                <DialogDescription className={"text-center text-xl"}>De DJO Vragenlijst verloopt in 3 fazen</DialogDescription>
+                                <DialogDescription className={"text-center text-xl"}>De DJO Vragenlijst verloopt in 3 fasen</DialogDescription>
                             </DialogHeader>
 
                             <div className={"flex flex-col gap-2"}>

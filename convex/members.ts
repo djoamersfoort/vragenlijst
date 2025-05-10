@@ -10,7 +10,7 @@ export const get = query({
         await ensureIdentity(ctx)
 
         return await ctx.db.query("members")
-            .filter(q => args.type === 'all' ? true : q.eq(q.field("tutor"), args.type === 'tutor'))
+            .filter(q => args.type === 'all' ? true : q.eq(q.field("tutor"), true))
             .collect()
     }
 })
