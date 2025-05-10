@@ -5,9 +5,10 @@ import {Form, FormField, FormItem, FormMessage} from "@/components/ui/form.tsx";
 import {useMutation, useQuery} from "convex/react";
 import {api} from "../../convex/_generated/api";
 import {Button} from "@/components/ui/button";
-import {Card, CardContent, CardDescription, CardHeader, CardTitle} from "@/components/ui/card.tsx";
+import {CardContent, CardDescription, CardHeader, CardTitle} from "@/components/ui/card.tsx";
 import SelectMember from "@/components/SelectMember.tsx";
 import {Badge} from "@/components/ui/badge.tsx";
+import FormCard from "@/components/FormCard.tsx";
 
 const schema = z.object({
     options: z.array(z.optional(z.string()))
@@ -41,7 +42,7 @@ export default function AnswerQuestions() {
     if (!question) return <h1>De vragen zijn op, joch!</h1>
 
     return (
-        <Card className={"min-w-[600px]"}>
+        <FormCard>
             <CardHeader>
                 <CardTitle className={"text-center text-3xl"}>{question.question}</CardTitle>
                 <CardDescription className={"text-center"}>Geef aan wie er het beste bij deze vraag past, volgorde is hierbij belangrijk!</CardDescription>
@@ -75,10 +76,11 @@ export default function AnswerQuestions() {
                             )}
                         />
 
+                        <div className={"flex-1"}></div>
                         <Button className={"w-full"} type="submit">Volgende vraag</Button>
                     </form>
                 </Form>
             </CardContent>
-        </Card>
+        </FormCard>
     )
 }

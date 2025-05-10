@@ -4,19 +4,22 @@ import {zodResolver} from "@hookform/resolvers/zod";
 import {Form, FormControl, FormField, FormItem, FormLabel, FormMessage} from "@/components/ui/form.tsx";
 import {useMutation} from "convex/react";
 import {api} from "../../convex/_generated/api";
-import { Input } from "@/components/ui/input";
-import { Button } from "@/components/ui/button";
+import {Input} from "@/components/ui/input";
+import {Button} from "@/components/ui/button";
 import {Select, SelectContent, SelectItem, SelectTrigger, SelectValue} from "@/components/ui/select.tsx";
-import {Card, CardContent, CardHeader, CardTitle} from "@/components/ui/card.tsx";
+import {CardContent, CardHeader, CardTitle} from "@/components/ui/card.tsx";
 import {
-    Dialog, DialogClose,
+    Dialog,
+    DialogClose,
     DialogContent,
-    DialogDescription, DialogFooter,
+    DialogDescription,
+    DialogFooter,
     DialogHeader,
     DialogTitle
 } from "@/components/ui/dialog.tsx";
 import {useRef, useState} from "react";
 import {CheckCircle} from "lucide-react";
+import FormCard from "@/components/FormCard.tsx";
 
 const schema = z.object({
     question: z.string(),
@@ -62,7 +65,7 @@ export default function AddQuestion() {
                     </DialogFooter>
                 </DialogContent>
             </Dialog>
-            <Card className={"min-w-[600px]"}>
+            <FormCard>
                 <CardHeader>
                     <CardTitle className={"text-center text-3xl"}>Voeg een vraag toe</CardTitle>
                 </CardHeader>
@@ -111,7 +114,7 @@ export default function AddQuestion() {
                         </form>
                     </Form>
                 </CardContent>
-            </Card>
+            </FormCard>
         </>
     )
 }

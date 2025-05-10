@@ -19,15 +19,23 @@ export default function Results() {
 
                 <div className={"flex flex-col gap-2"}>
                     <h3 className={"text-2xl font-bold"}>Er is het meest gestemd op</h3>
-                    <div className={"flex gap-6"}>
-                        {totals.slice(0, 3).map((result, i) => (
-                            <Card key={i} className={"flex-1"}>
-                                <CardHeader>
-                                    <CardTitle className={"flex justify-between items-center"}>{i+1}. {all.find(({ _id }) => _id === result.name)!.name} <Badge>{result.points} punten</Badge></CardTitle>
-                                </CardHeader>
-                            </Card>
-                        ))}
-                    </div>
+                    <Carousel>
+                        <CarouselContent>
+                            {totals.slice(0, 3).map((result, i) => (
+                                <CarouselItem>
+                                    <div className={"p-1"}>
+                                        <Card key={i} className={"flex-1"}>
+                                            <CardHeader>
+                                                <CardTitle className={"flex justify-between items-center"}>{i+1}. {all.find(({ _id }) => _id === result.name)!.name} <Badge>{result.points} punten</Badge></CardTitle>
+                                            </CardHeader>
+                                        </Card>
+                                    </div>
+                                </CarouselItem>
+                            ))}
+                        </CarouselContent>
+                        <CarouselPrevious />
+                        <CarouselNext />
+                    </Carousel>
                 </div>
 
                 <div className={"flex flex-col gap-2 flex-1"}>
@@ -35,7 +43,7 @@ export default function Results() {
                     <Carousel className={"flex-1 h-full"}>
                         <CarouselContent>
                             {questions.map((result, index) => (
-                                <CarouselItem className={"basis-1/3"} key={index}>
+                                <CarouselItem className={"lg:basis-1/3"} key={index}>
                                     <div className={"p-1 h-full"}>
                                         <Card className={"h-full text-center overflow-y-auto"}>
                                             <CardHeader>

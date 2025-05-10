@@ -4,12 +4,13 @@ import {Authenticated, Unauthenticated, useQuery,} from "convex/react";
 import {api} from "../convex/_generated/api";
 import {useAuthActions} from "@convex-dev/auth/react";
 import {Button} from "@/components/ui/button.tsx";
-import {Card, CardContent, CardHeader, CardTitle} from "@/components/ui/card.tsx";
+import {CardContent, CardHeader, CardTitle} from "@/components/ui/card.tsx";
 import AddQuestion from "@/states/AddQuestion.tsx";
 import AnswerQuestions from "@/states/AnswerQuestions.tsx";
 import Results from "@/states/Results.tsx";
 import {
-    Dialog, DialogClose,
+    Dialog,
+    DialogClose,
     DialogContent,
     DialogDescription,
     DialogFooter,
@@ -19,6 +20,7 @@ import {
 import {Badge} from "@/components/ui/badge.tsx";
 import {useState} from "react";
 import {Separator} from "@/components/ui/separator.tsx";
+import FormCard from "@/components/FormCard.tsx";
 
 export default function App() {
     const [open, setOpen] = useState(!localStorage.getItem('instructions'));
@@ -32,7 +34,7 @@ export default function App() {
             <main className="flex flex-col justify-center items-center w-screen h-screen">
                 <Authenticated>
                     <Dialog open={open} onOpenChange={onOpenChange}>
-                        <DialogContent>
+                        <DialogContent className={"max-w-screen"}>
                             <DialogHeader className={"mb-4"}>
                                 <DialogTitle className={"text-center text-2xl"}>Welkom bij DJO Vragenlijst</DialogTitle>
                                 <DialogDescription className={"text-center text-xl"}>De DJO Vragenlijst verloopt in 3 fasen</DialogDescription>
@@ -77,14 +79,14 @@ function SignInForm() {
     const {signIn} = useAuthActions();
 
     return (
-        <Card className={"text-center min-w-[600px]"}>
+        <FormCard className={"text-center w-full bg-background border-0 sm:border-1 sm:bg-card max-w-[640px]"}>
             <CardHeader>
                 <CardTitle className={"text-2xl"}>Log in jij joch!</CardTitle>
             </CardHeader>
             <CardContent className="flex flex-col">
                 <Button onClick={() => void signIn('djo')}>DJO</Button>
             </CardContent>
-        </Card>
+        </FormCard>
     );
 }
 
