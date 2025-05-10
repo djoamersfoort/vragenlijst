@@ -84,7 +84,7 @@ function SignInForm() {
                 <CardTitle className={"text-2xl"}>Log in jij joch!</CardTitle>
             </CardHeader>
             <CardContent className="flex flex-col">
-                <Button onClick={() => void signIn('djo')}>DJO</Button>
+                <Button onClick={() => void signIn('djo')}>Log in met DJO</Button>
             </CardContent>
         </FormCard>
     );

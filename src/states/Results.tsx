@@ -10,7 +10,6 @@ export default function Results() {
     if (!results || !all) return
 
     const { questions, totals } = results
-    console.log(questions)
 
     return (
         <div className={"w-full h-full"}>
