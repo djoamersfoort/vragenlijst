@@ -42,11 +42,15 @@ export default function SelectMember({ type, value, onChange }: { type: 'tutor'|
                                         setOpen(false)
                                     }}
                                 >
-                                    {item.name}
+                                    <div className={"flex items-center gap-2"}>
+                                        <img src={item.photo} className={"object-cover aspect-square h-12 rounded"} />
+                                        <span className={"text-xl"}>{item.name}</span>
+                                    </div>
+
                                     <Check
                                         className={cn(
                                             "ml-auto",
-                                            value === item.name ? "opacity-100" : "opacity-0"
+                                            value === item._id ? "opacity-100" : "opacity-0"
                                         )}
                                     />
                                 </CommandItem>

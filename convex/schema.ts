@@ -18,6 +18,8 @@ export default defineSchema({
     results: v.array(v.id("members"))
   }),
   members: defineTable({
+    djo_id: v.number(),
+    photo: v.string(),
     name: v.string(),
     tutor: v.boolean(),
   })
