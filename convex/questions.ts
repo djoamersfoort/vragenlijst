@@ -67,10 +67,12 @@ export const getResults = query({
     async handler(ctx) {
         await ensureIdentity(ctx)
 
+        const points: Record<string, number> = {}
+
         const questions = await ctx.db.query("questions")
             .collect()
 
-        return await Promise.all(questions.map(async question => {
+        const questionResults = await Promise.all(questions.map(async question => {
             const results = await ctx.db.query("answers")
                 .filter(q => q.eq(q.field("question"), question._id))
                 .collect()
@@ -79,8 +81,10 @@ export const getResults = query({
             results.forEach(result => {
                 result.results.forEach((result, index) => {
                     if (!names[result]) names[result] = 0
+                    if (!points[result]) points[result] = 0
 
                     names[result] += Math.max(0, 3 - index)
+                    points[result] += Math.max(0, 3 - index)
                 })
             })
 
@@ -95,5 +99,16 @@ export const getResults = query({
                 list
             }
         }))
+
+        const totals = Array.from(Object.entries(points))
+            .map(([name, points]) => ({
+                name, points
+            }))
+            .sort((a, b) => b.points - a.points)
+
+        return {
+            questions: questionResults,
+            totals
+        }
     }
 })

@@ -22,13 +22,13 @@ export default function SelectMember({ type, value, onChange }: { type: 'tutor'|
                     variant="outline"
                     role="combobox"
                     aria-expanded={open}
-                    className="w-full justify-between"
+                    className="flex-1 justify-between"
                 >
                     {value && list.find((item) => item._id === value)?.name}
                     <ChevronsUpDown className="opacity-50" />
                 </Button>
             </PopoverTrigger>
-            <PopoverContent className="w-[550px] p-0">
+            <PopoverContent className="w-[510px] p-0">
                 <Command>
                     <CommandInput placeholder="Zoek leden..." className="h-9" />
                     <CommandList>
